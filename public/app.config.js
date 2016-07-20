@@ -30,6 +30,9 @@ angular.
 		when('/init', {
           template: '<project-login></project-login>'
         }).
+    when('/view', {
+          template: '<document-view></document-view>'
+        }).
         otherwise('/index');
     }
   ]);
