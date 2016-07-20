@@ -33,7 +33,7 @@ angular.
 		when('/init', {
           template: '<project-login></project-login>'
         }).
-        otherwise('/index');
+        otherwise('/init');
     }
   ]);
 
