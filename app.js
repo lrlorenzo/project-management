@@ -30,7 +30,7 @@ app.use('/users', users);
 app.use('/projects', projects);
 app.use('/wsor', wsor);
 app.use('/init', init);
-app.use('/view2', view);
+app.use('/view', view);
 app.use('/components', express.static(path.join(__dirname, '/node_modules')))
 
 app.use('/*', function(req, res) {

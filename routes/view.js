@@ -24,10 +24,8 @@ function Project(id, name) {
 }
 */
 
-router.get('/view', function(req, res, next) {
-  res.send("Hello GET View");
+router.get('/', function(req, res, next) {
+  res.send("Hello GET view");
 });
-
-
 
 module.exports = router;
