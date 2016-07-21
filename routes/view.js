@@ -42,7 +42,7 @@ router.get('/', function(req, res, next) {
 		
 		var doc = new PDFDocument();
 		//doc.pipe(fs.createWriteStream('file.pdf'));
-		doc.text(rows[0].FIRSTNAME + ' ' + rows[0].MIDDLENAME + ' ' + rows[0].LASTNAME ,100,100);
+		// doc.text(rows[0].FIRSTNAME + ' ' + rows[0].MIDDLENAME + ' ' + rows[0].LASTNAME ,100,100);
 		doc.text('WeServ Systems International, Inc.',100,100);
 		doc.pipe(res);
 		doc.end();
