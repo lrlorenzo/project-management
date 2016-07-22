@@ -1,8 +1,13 @@
 angular.module('pmApp', [
   'ngRoute',
   'ngCookies',
+  'ngSanitize',
   'projectDetail',
   'projectRegistration',
   'projectLogin',
-  'careerSynopsis'
+  'basicInfo',
+  'projectQualifications',
+  'seminarTraining',
+  'careerSynopsis',
+  'projectExperience'
 ]);

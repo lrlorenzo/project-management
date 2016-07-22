@@ -2,30 +2,38 @@ angular.
   module('projectRegistration').
   component('projectRegistration', {
     templateUrl: 'project-registration/project-registration.template.html',
-    controller: ['$scope', '$http', '$location',
-      function ProjectRegistrationController($scope, $http, $location) {
+    controller: ['$scope', '$http', '$location', '$timeout',
+      function ProjectRegistrationController($scope, $http, $location, $timeout) {
 		  var self = this;
-		  //console.log("routeParams:" + $routeParams.projectId);
 		  $http.get('/wsor/register').then(function(response) {
-			 console.log('xxxx');
-			 //console.log(response.data);
-			 //self.projects = response.data; 
+			 console.log('xxxx'); 
 		  });
-		  // $scope.clickBtnSubmit = function() {
+		  
 		  $scope.submit = function() {
-			console.log('yyyy');
-			var data = $scope.employee; 
-			console.log(data);
-			$http.post('/wsor/register', data).then(function successCallback(response) {
-				console.log('eh di ok');
-			}, function errorCallback(response) {
-				console.log('di ok');
-			});
+				console.log('yyyy');
+				var data = $scope.employee; 
+				console.log(data);
+				$http.post('/wsor/register', data).then(function(response) {
+					if (response.data.result == '1') {
+						$scope.msg = 
+						'<div class="alert alert-danger col-md-12" role="alert"><strong>Oops!!</strong> Something wrong, please try again later.</div>';
+						;
+						login;
+					} else {
+						$scope.msg = 
+						'<div class="alert alert-success col-md-12" role="alert"><strong>Yay!!</strong> You have successfully registered. <br> Redirecting to login page in 5 seconds..</div>'
+						;
+					$timeout(login, 5000);
+					}
+				});
 		  }
+		  
+		  var login = function() {
+			  $location.path('/init');
+		  };
+
 		  $scope.cancel = function() {
-			console.log('dito tau cancel');
-			$location.path('/init');
-			//$scope.$apply();
+			  login;
 		  }
 		}]
   });
